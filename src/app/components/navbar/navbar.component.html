@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <nav>
+    <a routerLink="/">Agenda</a>
+    <a routerLink="/create">Novo Contato</a>
+    <a routerLink="/update">Editar</a>
+  </nav>
+  <mat-icon (click)="toggleMode()">{{ mode }}</mat-icon>
+</mat-toolbar>

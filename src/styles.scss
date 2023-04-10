@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/theming";
+@include mat-core();
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+.container {
+  min-height: 60vh;
+}
+a {
+  text-decoration: none;
+  padding-left: 10px;
+  color: #fff;
+}
+input,
+button {
+  border: none;
+  box-shadow: none;
+  :hover {
+    border: none;
+    box-shadow: none;
+  }
+  :focus {
+    border: none;
+    box-shadow: none;
+  }
+}
+mat-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  min-width: 360px;
+}
+
+h3,
+label {
+  color: #fff;
+}
+.dark-mode {
+  $custom-app-primary: mat-palette($mat-blue);
+  $custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700);
+  $custom-app-warn: mat-palette($mat-red);
+
+  $custon-theme: mat-light-theme(
+    $custom-app-primary,
+    $custom-app-secondary,
+    $custom-app-warn
+  );
+
+  @include angular-material-theme($custon-theme);
+
+  h3,
+  label {
+    color: #000;
+  }
+  input {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+.validation-error p {
+  color: #dc3545;
+  margin-top: 0.4em;
+  border-left: 3px solid #dc3545;
+  padding-left: 0.2em;
+}

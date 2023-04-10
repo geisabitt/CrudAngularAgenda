@@ -1,0 +1,32 @@
+form {
+  max-width: 500px;
+}
+input {
+  height: 36px;
+  border-radius: 5px;
+}
+label {
+  display: block;
+  margin-top: 10px;
+}
+.input_group {
+  input {
+    width: 100%;
+  }
+}
+.input_numbers_group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  label {
+    width: 100%;
+  }
+  input,
+  .validation-error {
+    width: 70%;
+  }
+  justify-content: space-between;
+}
+.btn_ajust {
+  margin-top: 20px;
+}

@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>CPF</th>
+      <th>Date Born</th>
+      <th>Numbers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of person$">
+      <td>{{person.data.name}}</td>
+      <td>{{person.data.email}}</td>
+      <td>{{person.data.cpf}}</td>
+      <td>{{person.date_born}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let number of person.data.numbers">
+            {{number.number}} - {{number.type}}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

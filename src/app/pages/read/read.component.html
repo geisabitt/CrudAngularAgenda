@@ -1,0 +1,47 @@
+<section class="container">
+  <mat-card class="container-fluid">
+    <mat-table [dataSource]="person$" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+        <mat-cell *matCellDef="let person">{{ person.name }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let person">{{ person.email }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef>CPF</mat-header-cell>
+        <mat-cell *matCellDef="let person">{{ person.cpf }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="date_born">
+        <mat-header-cell *matHeaderCellDef>Data Nascimento</mat-header-cell>
+        <mat-cell *matCellDef="let person">{{ person.date_born }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="numbers">
+        <mat-header-cell *matHeaderCellDef>Telefone</mat-header-cell>
+        <mat-cell *matCellDef="let person">
+          <ul>
+            <li *ngFor="let number of person.numbers">
+              {{ number.number }}
+            </li>
+          </ul>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+        <mat-cell *matCellDef="let person">
+          <button mat-stroked-button color="accent" type="button">
+            Editar <mat-icon>edit</mat-icon>
+          </button></mat-cell
+        >
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card>
+</section>

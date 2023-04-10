@@ -1,0 +1,81 @@
+<form
+  class="container"
+  [formGroup]="personForm"
+  (ngSubmit)="Submit()"
+  #formDir="ngForm"
+>
+  <div class="input_group">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" formControlName="name" />
+    <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="name.errors?.['required']">O nome é obrigatório.</p>
+      <p *ngIf="name.errors?.['minLength']">Digite seu nome completo.</p>
+      <p *ngIf="name.errors?.['maxLength']">
+        Você exedeu o numero máximo de caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="input_group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" />
+    <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="email.errors?.['required']">O email é obrigatório.</p>
+    </div>
+  </div>
+  <div class="input_group">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" formControlName="cpf" />
+    <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="cpf.errors?.['required']">O CPF é obrigatório.</p>
+      <p *ngIf="cpf.errors?.['minLength']">O CPF deve ter 11 digitos</p>
+      <p *ngIf="cpf.errors?.['maxLength']">
+        Você exedeu o numero máximo de caracteres.
+      </p>
+    </div>
+  </div>
+  <div class="input_group">
+    <label for="date_born">Data de aniversário:</label>
+    <input type="date" id="date_born" formControlName="date_born" />
+    <div
+      *ngIf="date_born.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p *ngIf="date_born.errors?.['required']">O data é obrigatório.</p>
+    </div>
+  </div>
+  <div formArrayName="numbers">
+    <div *ngFor="let number of numbers.controls; let i = index">
+      <div class="input_numbers_group" [formGroupName]="i">
+        <label for="number">Telefone {{ i + 1 }}:</label>
+        <input type="text" id="number" formControlName="number" />
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="removeNumber(i)"
+        >
+          Deletar
+        </button>
+
+        <div
+          *ngIf="number.invalid && formDir.submitted"
+          class="validation-error"
+        >
+          <p *ngIf="number.errors?.['required']">O telefone é obrigatório.</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="btn_ajust"
+      mat-stroked-button
+      color="accent"
+      type="button"
+      (click)="addNumber()"
+    >
+      Adicionar Telefone
+    </button>
+  </div>
+  <button class="btn_ajust" mat-raised-button color="accent" type="submit">
+    {{ btnText }}
+  </button>
+</form>
