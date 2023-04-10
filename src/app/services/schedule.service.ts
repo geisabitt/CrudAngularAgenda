@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Person } from '../interface/person.model';
+import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+
 import { Contato } from '../interface/contato.model';
+import { Person } from '../interface/person.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScheduleService {
-  private readonly API = 'http://teste-frontend.saperx.com.br/api/schedule';
+  private readonly API = '../../assets/db.json';
+
+  //private readonly API = 'http://teste-frontend.saperx.com.br/api/schedule';
 
   constructor(private httpClient: HttpClient) {}
 
