@@ -1,12 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Person } from '../../interface/person.model';
+
 @Component({
   selector: 'app-schedule-form',
   templateUrl: './schedule-form.component.html',
@@ -61,9 +57,7 @@ export class ScheduleFormComponent implements OnInit {
     });
   }
   createNumber(): FormGroup {
-    return this.formBuilder.group({
-      number: ['', Validators.required],
-    });
+    return this.formBuilder.group(['', Validators.required]);
   }
 
   addNumber(): void {

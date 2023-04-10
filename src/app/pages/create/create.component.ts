@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ScheduleService } from '../../services/schedule.service';
+
 import { Person } from '../../interface/person.model';
+import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
   selector: 'app-create',
@@ -22,12 +23,9 @@ export class CreateComponent implements OnInit {
     formData.append('name', person.name);
     formData.append('email', person.email);
     formData.append('cpf', person.cpf);
-
-    // Adicione os números como itens separados no FormData
-    person.numbers.forEach((number) => {
-      formData.append('numbers[]', number.toString()); // Converter o número para string antes de adicioná-lo
-    });
-
+    for (let number of person.numbers) {
+      formData.append('numbers[]', String(number)); // Passar o número diretamente, sem converter para string
+    }
     formData.append('date_born', new Date(person.date_born).toISOString());
 
     console.log(formData);

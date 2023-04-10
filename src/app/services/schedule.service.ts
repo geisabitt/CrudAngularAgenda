@@ -31,18 +31,32 @@ export class ScheduleService {
       )
     );
   }
+  getPerson(id: number): Observable<Person[]> {
+    const url = `${this.API}/${id}`;
+    return this.httpClient.get<any>(url).pipe(
+      map((response: { data: Person[] }) =>
+        response.data.map((item: Person) => {
+          console.log(item);
+          return {
+            id: item.id,
+            name: item.name,
+            numbers: item.numbers,
+            email: item.email,
+            cpf: item.cpf,
+            date_born: item.date_born,
+          };
+        })
+      )
+    );
+  }
   registerContact(contato: Contato): Observable<any> {
     return this.httpClient.post(this.API, contato);
   }
   createTest(formData: FormData): Observable<Person[]> {
     const headers = new HttpHeaders();
-    const numbersArray = formData
-      .getAll('numbers')
-      .map((number: any) => number); // Obtém os números do FormData
-
     const body = {
       name: formData.get('name'),
-      numbers: numbersArray, // Utiliza o array de números diretamente
+      numbers: formData.get('numbers'),
       email: formData.get('email'),
       cpf: formData.get('cpf'),
       date_born: formData.get('date_born'),

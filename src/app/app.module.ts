@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ScheduleFormComponent } from './components/schedule-form/schedule-form.component';
@@ -28,7 +27,6 @@ import { UpdateComponent } from './pages/update/update.component';
     NavbarComponent,
     FooterComponent,
     ScheduleFormComponent,
-    ContactFormComponent,
   ],
   imports: [
     FormsModule,

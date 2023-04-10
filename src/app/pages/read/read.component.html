@@ -34,7 +34,12 @@
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
         <mat-cell *matCellDef="let person">
-          <button mat-stroked-button color="accent" type="button">
+          <button
+            mat-stroked-button
+            color="accent"
+            type="button"
+            routerLink="update/{{ person.id }}"
+          >
             Editar <mat-icon>edit</mat-icon>
           </button></mat-cell
         >
