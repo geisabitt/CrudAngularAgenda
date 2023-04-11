@@ -2,20 +2,6 @@
   "status": true,
   "data": [
     {
-      "id": 1,
-      "name": "Nome do Contato 2",
-      "numbers": [
-        {
-          "id": 13,
-          "id_schedule": 31,
-          "number": 4831210120
-        }
-      ],
-      "email": "contato@email.com",
-      "cpf": "02345678901",
-      "date_born": "2023-03-16"
-    },
-    {
       "id": 28,
       "name": "Nome do Contato 2",
       "numbers": [
